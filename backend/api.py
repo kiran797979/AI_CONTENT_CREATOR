@@ -157,6 +157,17 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
+@app.get("/")
+def root() -> dict[str, str]:
+    return {
+        "service": "AI Content Studio API",
+        "status": "ok",
+        "health": "/health",
+        "generate": "/generate",
+        "docs": "/docs",
+    }
+
+
 @app.post("/generate", response_model=GenerateResponse)
 def generate(payload: GenerateRequest) -> GenerateResponse:
     mapped_content_type = _map_content_type(payload.contentType)
