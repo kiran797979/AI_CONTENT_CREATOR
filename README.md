@@ -66,13 +66,10 @@ Generate LinkedIn posts, tweets, emails, blog posts, ad copy, and landing page c
 - Sign In / Sign Up cards with password strength meter and form validation
 - Protected routes with `localStorage`-based auth persistence
 
-### History & Persistence
-- Sidebar with generation history and relative timestamps
-- `localStorage` history (capped at 50 entries)
-- Debounced `sessionStorage` draft auto-save
-
-### Easter Egg
+### Easter Egg & Extras
 - 🎮 Canvas-based surfer game with physics, obstacles, powerups, and HiDPI support
+- **Pixel/retro visual theme** on landing page (`/welcome`) using "Press Start 2P" and "Silkscreen" fonts
+- Interactive **3D Spline scene** hero layout 
 
 ---
 
@@ -82,13 +79,14 @@ Generate LinkedIn posts, tweets, emails, blog posts, ad copy, and landing page c
 
 | Technology | Version | Purpose |
 |---|---|---|
-| React | 19.2 | UI framework |
-| TypeScript | 5.9 | Type safety (`strict`, `verbatimModuleSyntax`, `erasableSyntaxOnly`) |
-| Vite | 7.3 | Build tool and dev server |
+| React | 19 | UI framework |
+| TypeScript | 5 | Type safety (`strict`, `verbatimModuleSyntax`, `erasableSyntaxOnly`) |
+| Vite | 7 | Build tool and dev server |
 | Tailwind CSS | 3.4 | Utility-first styling with custom design tokens |
-| Framer Motion | 12.x | Minimal transitions (opacity fades, 0.15–0.2s, no springs) |
+| Framer Motion | 12.x | Spring dynamics and smooth UI transitions |
 | GSAP | 3.14 | Login page lamp animation (Draggable, SVG morphing) |
 | React Router | 7.13 | Client-side routing with auth guard |
+| @splinetool/react-spline | latest | 3D visual integration |
 
 ### Backend
 
@@ -133,6 +131,8 @@ ai-content-studio/
 │   │   ├── useFormValidation.ts
 │   │   ├── useToast.ts
 │   │   └── useTypewriter.ts
+│   ├── pages/                       # Route pages
+│   │   └── LandingPage.tsx          #   Public startup/marketing page (/welcome)
 │   ├── services/                    # API layer
 │   │   ├── api.ts                   #   HTTP client with retry, abort, timeout
 │   │   └── types.ts                 #   Request/response type definitions
@@ -204,6 +204,12 @@ npm run dev
 The frontend will be available at **http://localhost:5173**.
 
 > **Tip:** Set `VITE_USE_MOCK=true` in `.env` to use the built-in mock generator without needing the backend running.
+
+### App Routes
+
+- `/welcome` (or `/landing`) — public landing page (startup screen)
+- `/login` — authentication page
+- `/` — protected dashboard (requires auth; redirects to `/welcome` if not logged in)
 
 ### Backend Setup
 
