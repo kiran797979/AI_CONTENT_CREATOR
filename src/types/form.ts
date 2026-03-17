@@ -39,7 +39,7 @@ export const modelOptions = [
   { value: "mistralai/mistral-7b", label: "Mistral 7B", dot: "bg-orange-400" },
   { value: "openai/gpt-4o-mini", label: "GPT-4o Mini", dot: "bg-emerald-400" },
   { value: "meta-llama/llama-3.2-90b", label: "LLaMA 3.2 90B", dot: "bg-violet-400" },
-  { value: "google/gemini-2.5-flash", label: "Gemini Flash", dot: "bg-cyan-400" },
+  { value: "google/gemma-3-2b-it:free", label: "Gemma 3 2B", dot: "bg-cyan-400" },
   { value: "qwen/qwen-2.5-72b", label: "Qwen 2.5 72B", dot: "bg-rose-400" },
 ] as const;
 
@@ -69,7 +69,7 @@ export const initialFormData: FormData = {
   length: "medium",
   targetAudience: "",
   keywords: "",
-  model: "google/gemini-2.5-flash",
+  model: "google/gemma-3-2b-it:free",
 };
 
 // ── Validation ──────────────────────────────────────

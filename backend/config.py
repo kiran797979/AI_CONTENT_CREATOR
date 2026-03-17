@@ -20,7 +20,7 @@ class Config:
     OPENROUTER_TIMEOUT: float = 60.0
 
     # Default Model Settings
-    DEFAULT_MODEL: str = os.getenv("DEFAULT_MODEL", "deepseek/deepseek-chat")
+    DEFAULT_MODEL: str = os.getenv("DEFAULT_MODEL", "google/gemma-3-2b-it:free")
     DEFAULT_TEMPERATURE: float = float(os.getenv("DEFAULT_TEMPERATURE", "0.7"))
 
     # Content Generation Settings

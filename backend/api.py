@@ -79,6 +79,7 @@ MODEL_MAP = {
     "deepseek/deepseek-r1": "deepseek/deepseek-chat",
     "google/gemini-2.5-flash": "google/gemini-flash-1.5",
     "openai/gpt-4o-mini": "openai/gpt-3.5-turbo",
+    "google/gemma-3-2b-it:free": "google/gemma-3-2b-it:free",
     "meta-llama/llama-3.2-90b": "meta-llama/llama-3.1-8b-instruct:free",
     "mistralai/mistral-7b": "mistralai/mistral-7b-instruct:free",
     "qwen/qwen-2.5-72b": "qwen/qwen-2.5-72b-instruct",
@@ -106,7 +107,7 @@ def _map_length(value: str) -> str:
 
 def _map_model(value: str) -> str:
     if not value:
-        return "google/gemini-flash-1.5"
+        return "google/gemma-3-2b-it:free"
     return MODEL_MAP.get(value, value)
 
 
