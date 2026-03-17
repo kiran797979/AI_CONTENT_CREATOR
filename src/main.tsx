@@ -9,15 +9,21 @@ import LandingPage from './pages/LandingPage.tsx'
 // eslint-disable-next-line react-refresh/only-export-components
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const isAuth = localStorage.getItem('acs-authenticated') === 'true'
-  return isAuth ? <>{children}</> : <Navigate to="/login" replace />
+  return isAuth ? <>{children}</> : <Navigate to="/" replace />
+}
+
+function HomeRoute() {
+  const isAuth = localStorage.getItem('acs-authenticated') === 'true'
+  return isAuth ? <App /> : <LandingPage />
 }
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<HomeRoute />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/welcome" element={<LandingPage />} />
+        <Route path="/welcome" element={<Navigate to="/" replace />} />
         <Route
           path="/*"
           element={

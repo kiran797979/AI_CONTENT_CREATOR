@@ -216,6 +216,11 @@ export default function LoginPage() {
 
   /* ResizeObserver for wrapper */
   useEffect(() => {
+    const isAuth = localStorage.getItem("acs-authenticated") === "true";
+    if (isAuth) {
+      navigate("/", { replace: true });
+    }
+
     const ro = new ResizeObserver(() => {
       if (lampOnRef.current) syncHeight(currentFormRef.current);
     });
